@@ -5,17 +5,15 @@ import {
   UpdateDateColumn,
   PrimaryColumn,
   BaseEntity,
-  Index,
 } from "typeorm";
 
 @Entity("accounts")
-@Index(["company_name"])
 export class Accounts extends BaseEntity {
   @PrimaryColumn()
   id: string;
 
-  @Column()
-  company_name: string;
+  @Column({ unique: true })
+  name: string;
 
   @CreateDateColumn()
   created_at: Date;

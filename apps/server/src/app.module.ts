@@ -15,6 +15,18 @@ import {
   Sources,
   Events,
 } from "./entities";
+import {
+  AccountModule,
+  AttemptModule,
+  AuthModule,
+  ConnectionModule,
+  DestinationModule,
+  EventModule,
+  RequestModule,
+  SourceModule,
+  UserModule,
+} from "./services";
+import { JwtStrategy } from "./utiles";
 
 @Module({
   imports: [
@@ -56,8 +68,17 @@ import {
       }),
       inject: [ConfigService],
     }),
+    UserModule,
+    AuthModule,
+    EventModule,
+    RequestModule,
+    SourceModule,
+    AccountModule,
+    AttemptModule,
+    ConnectionModule,
+    DestinationModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}

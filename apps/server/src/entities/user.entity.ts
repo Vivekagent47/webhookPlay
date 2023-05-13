@@ -3,16 +3,16 @@ import {
   CreateDateColumn,
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   UpdateDateColumn,
   BeforeInsert,
+  PrimaryColumn,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
 import { Exclude } from "class-transformer";
 
 @Entity("user")
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryColumn()
   id: string;
 
   @Column()
