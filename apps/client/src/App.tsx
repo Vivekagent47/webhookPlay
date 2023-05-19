@@ -1,35 +1,50 @@
-import React from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React, { useContext, useEffect } from "react";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { useNavigate } from "react-router-dom";
+import Routing from "./Routing";
 import "./App.css";
+import { useQuery } from "react-query";
 
-function App() {
-  const [count, setCount] = React.useState(0);
+import Sidebar from "./components/Sidebar";
+import { AuthContext, IAuthContext } from "./contexts/AuthContext";
+import { Toaster } from "react-hot-toast";
+
+const App = () => {
+  const { isLoggedIn, fetchAccessToken } =
+    useContext<IAuthContext>(AuthContext);
+  const navigate = useNavigate();
+
+  useQuery({
+    queryKey: "accessToken",
+    queryFn: () => fetchAccessToken(),
+    refetchInterval: 1000 * 60 * 30,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchIntervalInBackground: false,
+  });
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+
+    if (!isLoggedIn && !user) {
+      navigate("/login");
+    }
+  }, [isLoggedIn]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <ReactQueryDevtools />
+      <div className="flex">
+        <div className="sticky h-screen top-0 left-0">
+          {isLoggedIn ? <Sidebar /> : null}
+        </div>
+        <div className={`w-full h-full ${isLoggedIn ? "" : ""}`}>
+          <Routing />
+        </div>
+        <Toaster position="bottom-right" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
-}
+};
 
 export default App;
