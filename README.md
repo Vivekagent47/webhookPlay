@@ -1,81 +1,50 @@
-# Turborepo starter
+# Webhook Management Tool
 
-This is an official starter Turborepo.
+This project aims to provide a webhook management tool that simplifies the process of managing and monitoring webhooks. It helps developers easily integrate webhooks into their applications and provides a user-friendly interface to manage webhook configurations and track their status.
 
-## Using this example
+## Features
 
-Run the following command:
+- **Webhook Status Monitoring**: The tool allows users to view the status of their webhooks in real-time. They can see if the webhooks are successfully delivered, failed, or pending.
 
-```sh
-npx create-turbo@latest
-```
+- **Webhook Configuration Management**: Users can easily configure and manage their webhooks through the tool's intuitive interface. They can add new webhooks, update existing ones, and delete unnecessary ones.
 
-## What's inside?
+- **Error Handling and Notifications**: The tool provides comprehensive error handling and notifications. In case of failed webhook deliveries or any other issues, users receive timely notifications and can take appropriate actions.
 
-This Turborepo includes the following packages/apps:
+- **Developer-Friendly Infrastructure**: Our goal is to abstract away the complexities of asynchronous event-based communication, enabling developers to focus on building their applications rather than dealing with infrastructure concerns.
 
-### Apps and Packages
+## Getting Started
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+To use the webhook management tool, follow these steps:
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+1. Clone the repository: `git clone https://github.com/Vivekagent47/webhookPlay`
+2. Install the necessary dependencies: `pnpm install`
+3. Configure the tool by updating the `.env` file with your preferred settings.
+4. Run the application: `pnpm dev`
+5. Access the tool through your web browser at `http://localhost:5173`.
 
-### Utilities
+## Usage
 
-This Turborepo has some additional tools already setup for you:
+Once you have the webhook management tool up and running, you can start managing your webhooks through the provided user interface. The tool offers a simple and intuitive design, making it easy to navigate and perform actions such as adding, updating, and deleting webhooks.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+The status of each webhook is displayed in real-time, allowing you to monitor the success or failure of webhook deliveries. In case of any issues, you will be notified through the tool's notification system.
 
-### Build
+## Contributing
 
-To build all apps and packages, run the following command:
+We welcome contributions to the webhook management tool project. If you would like to contribute, please follow these steps:
 
-```
-cd my-turborepo
-pnpm build
-```
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
+3. Make your modifications and ensure they follow the project's coding guidelines.
+4. Commit your changes: `git commit -m "Add feature or fix bug"`.
+5. Push to the branch: `git push origin feature-name`.
+6. Create a pull request describing your changes.
 
-### Develop
+## License
 
-To develop all apps and packages, run the following command:
+This project is licensed under the [MIT License](LICENSE).
 
-```
-cd my-turborepo
-pnpm dev
-```
+## Contact
 
-### Remote Caching
+If you have any questions or suggestions regarding the webhook management tool, please feel free to contact us at [email protected]
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+We appreciate your interest and hope this tool simplifies your webhook management process, allowing you to focus on developing your products with ease.
